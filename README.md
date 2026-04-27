@@ -1,48 +1,71 @@
-## Scraping toolkit
+## salimova_scrape_datasets
 
-This repo contains a small, reusable scraping toolkit with **site plugins**.
+Reproducible scraping + preprocessing pipelines for:
 
-### Setup
+- **CARSS** (`data.carss.cn`): drug resistance tables (`publish/drug`) and indicator lineplots (`publish/indicator`).
+- **National Bureau of Statistics (China) yearbooks** (`stats.gov.cn`): offline bundle for tables (HTML for 2005–2013; JPG for 2014–2025).
 
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-```
+The repo is structured for **journal publication**: clear entrypoints, pinned dependencies, and outputs written to a single gitignored `artifacts/` folder.
 
-### Run CARSS (drug resistance)
+### Quickstart (Docker + Make)
 
-CARSS is protected by a WAF and requires browser cookies.
+Build the container:
 
 ```bash
-source .venv/bin/activate
-python -m scraper run carss_drug --cookies cookies.json --out carss_drug_resistance.csv
+make build
 ```
 
-Optional debug:
+Print environment versions (saved to `artifacts/env_versions.txt`):
 
 ```bash
-python -m scraper run carss_drug --cookies cookies.json --out /tmp/sample.csv --limit-combos 2
+make env-info
 ```
 
-### Run stats.gov.cn yearbook discovery/download
+### CARSS (requires cookies)
 
-This plugin discovers and downloads the JPG tables for a given year.
+CARSS is protected by a WAF. You must export fresh cookies from your browser after passing the human check.
 
-Discover:
+- Put the cookies JSON at `artifacts/secrets/cookies.json` (this path is gitignored).
+
+Scrape the **publish/drug** dataset:
 
 ```bash
-source .venv/bin/activate
-python -m scraper run stats_gov_cn --year 2024 --out out/stats_gov_cn/2024
+make carss-drug YEAR=2024
 ```
 
-Download discovered images:
+Scrape the **publish/indicator** lineplot dataset:
 
 ```bash
-python -m scraper run stats_gov_cn --year 2024 --out out/stats_gov_cn/2024 --download
+make carss-indicator
 ```
 
-Artifacts:
-- `discovery.json`: discovery metadata
-- `manifest.jsonl`: one line per downloaded image (urls, checksum, size, filename)
+Outputs (gitignored by default):
+
+- `artifacts/carss/publish_drug/carss_drug_resistance.csv`
+- `artifacts/carss/publish_indicator/carss_drug_resistance_lineplot.csv`
+
+### Yearbook (stats.gov.cn)
+
+2014–2025: index + download JPG table images:
+
+```bash
+make yearbook-2014 YEAR=2024
+```
+
+2005–2013: index + download HTML table pages for offline extraction:
+
+```bash
+make yearbook-2005 YEAR=2005
+```
+
+Outputs (gitignored by default) are written under:
+
+- `artifacts/yearbook/2014-2025/<YEAR>/`
+- `artifacts/yearbook/2005-2013/<YEAR>/`
+
+### Notes on reproducibility
+
+- The canonical environment is defined by `Dockerfile` + `requirements.txt`.
+- Python code lives in `src/` and is imported via `PYTHONPATH=/app/src` inside the container.
+
 

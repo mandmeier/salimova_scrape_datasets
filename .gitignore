@@ -10,6 +10,7 @@ __pycache__/
 # Local secrets / auth
 cookies.json
 *.har
+artifacts/
 
 # Downloaded/derived datasets and artifacts
 out/

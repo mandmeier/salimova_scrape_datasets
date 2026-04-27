@@ -108,8 +108,16 @@ def run(
 ) -> int:
     extra_args = extra_args or []
     ap = argparse.ArgumentParser(add_help=False)
-    ap.add_argument("--options", default="inputs/options.json", help="Reuse layer code->name mapping.")
-    ap.add_argument("--indicators", default="inputs/indicator_options.json", help="Indicator list (code->label).")
+    ap.add_argument(
+        "--options",
+        default="CARSS/publish_indicator/configs/layers_options.json",
+        help="Reuse layer code->name mapping.",
+    )
+    ap.add_argument(
+        "--indicators",
+        default="CARSS/publish_indicator/configs/indicator_options.json",
+        help="Indicator list (code->label).",
+    )
     ap.add_argument("--area-codes", default="", help="Comma-separated areaCodes to run (default: all in file).")
     ap.add_argument("--limit-combos", type=int, default=0, help="Limit areaCode×indicator combos (debug).")
     ap.add_argument("--append", action="store_true", help="Append to output if it exists (resume).")

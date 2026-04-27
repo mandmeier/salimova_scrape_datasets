@@ -135,7 +135,11 @@ def run(
 ) -> int:
     extra_args = extra_args or []
     ap = argparse.ArgumentParser(add_help=False)
-    ap.add_argument("--options", default="inputs/options.json")
+    ap.add_argument(
+        "--options",
+        default="CARSS/publish_indicator/configs/layers_options.json",
+        help="CARSS publish/drug layer+organism options (JSON).",
+    )
     ap.add_argument("--limit-combos", type=int, default=0)
     ns, _ = ap.parse_known_args(extra_args)
 
