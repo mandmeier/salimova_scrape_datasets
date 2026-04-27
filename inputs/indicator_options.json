@@ -1,0 +1,34 @@
+{
+  "years": [2024],
+  "areaCodes": ["00", "10", "20", "30", "40", "50", "60", "70"],
+  "areaCodeToLayerCodes": {
+    "00": ["00"],
+    "10": ["00", "0031", "0032", "0033", "0034", "0035", "0036", "0037"],
+    "20": ["00", "0044", "0045", "0046"],
+    "30": ["00", "0011", "0012", "0013", "0014", "0015"],
+    "40": ["00", "0041", "0042", "0043"],
+    "50": ["00", "0050", "0051", "0052", "0053", "0054"],
+    "60": ["00", "0061", "0062", "0063", "0064", "0065"],
+    "70": ["00", "0021", "0022", "0023"]
+  },
+  "indicators": [
+    { "indicator": "MRSA", "name": "" },
+    { "indicator": "MRCNS", "name": "" },
+    { "indicator": "VREFA", "name": "" },
+    { "indicator": "VREFM", "name": "" },
+    { "indicator": "PRSP(nm)-R", "name": "" },
+    { "indicator": "ERSP", "name": "" },
+    { "indicator": "CRECO", "name": "" },
+    { "indicator": "CtxCroREco", "name": "" },
+    { "indicator": "QnREco", "name": "" },
+    { "indicator": "CRKPN", "name": "" },
+    { "indicator": "CtxCroRKpn", "name": "" },
+    { "indicator": "CRPAE", "name": "" },
+    { "indicator": "CRABA", "name": "" }
+  ],
+  "request_defaults": {
+    "dataGroupClass": "ALL",
+    "dataGroups": ["ALL"]
+  }
+}
+

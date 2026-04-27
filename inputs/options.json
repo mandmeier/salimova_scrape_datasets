@@ -1,0 +1,48 @@
+{
+  "years": [2019, 2020, 2021, 2022, 2023, 2024],
+  "layers": [
+    { "layerCode": "00", "name": "全国" },
+    { "layerCode": "0011", "name": "北京" },
+    { "layerCode": "0012", "name": "天津" },
+    { "layerCode": "0013", "name": "河北" },
+    { "layerCode": "0014", "name": "山西" },
+    { "layerCode": "0015", "name": "内蒙古" },
+    { "layerCode": "0021", "name": "辽宁" },
+    { "layerCode": "0022", "name": "吉林" },
+    { "layerCode": "0023", "name": "黑龙江" },
+    { "layerCode": "0031", "name": "上海" },
+    { "layerCode": "0032", "name": "江苏" },
+    { "layerCode": "0033", "name": "浙江" },
+    { "layerCode": "0034", "name": "安徽" },
+    { "layerCode": "0035", "name": "福建" },
+    { "layerCode": "0036", "name": "江西" },
+    { "layerCode": "0037", "name": "山东" },
+    { "layerCode": "0041", "name": "河南" },
+    { "layerCode": "0042", "name": "湖北" },
+    { "layerCode": "0043", "name": "湖南" },
+    { "layerCode": "0044", "name": "广东" },
+    { "layerCode": "0045", "name": "广西" },
+    { "layerCode": "0046", "name": "海南" },
+    { "layerCode": "0050", "name": "重庆" },
+    { "layerCode": "0051", "name": "四川" },
+    { "layerCode": "0052", "name": "贵州" },
+    { "layerCode": "0053", "name": "云南" },
+    { "layerCode": "0054", "name": "西藏" },
+    { "layerCode": "0061", "name": "陕西" },
+    { "layerCode": "0062", "name": "甘肃" },
+    { "layerCode": "0063", "name": "青海" },
+    { "layerCode": "0064", "name": "宁夏" },
+    { "layerCode": "0065", "name": "新疆" }
+  ],
+  "organisms": [
+    { "organism": "sau", "name": "金黄色葡萄球菌" },
+    { "organism": "eco", "name": "大肠埃希菌" },
+    { "organism": "kpn", "name": "肺炎克雷伯菌" },
+    { "organism": "pae", "name": "铜绿假单胞菌" },
+    { "organism": "aba", "name": "鲍曼不动杆菌" }
+  ],
+  "request_defaults": {
+    "dataGroup": "ALL",
+    "dataGroupClass": "ALL"
+  }
+}

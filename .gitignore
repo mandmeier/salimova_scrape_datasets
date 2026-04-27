@@ -1,0 +1,22 @@
+.DS_Store
+*.py[cod]
+__pycache__/
+.pytest_cache/
+
+# Virtual environments
+.venv/
+.venv*/
+
+# Local secrets / auth
+cookies.json
+*.har
+
+# Downloaded/derived datasets and artifacts
+out/
+*.csv
+*.jsonl
+
+# Cursor/IDE noise
+.cursor/
+.vscode/
+
